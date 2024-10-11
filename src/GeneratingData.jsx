@@ -6,8 +6,8 @@ const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 function GeneratingData()
 {
-    const [prompt,setPrompt] = useState(" ");
-    const [text,generatedText] = useState(" ");
+    const [prompt,setPrompt] = useState("");
+    const [text,generatedText] = useState("");
 
     const[containerId,setContainerId] = useState("hideContainer");
 
@@ -21,18 +21,20 @@ function GeneratingData()
     async function generateContent()
     {
         const result = await model.generateContent(prompt);
+        setContainerId("displayContainer");
         generatedText(result.response.text());
-        setContainerId("displayContainer")
+        console.log(result.response.text());
     }
     
     allContents = text.split(".");
     allContents.length = allContents.length - 1;
+    // console.log(allContents);
 
     return(
         <>
         <img className="bg" src="/src/assets/bg.jpg" alt="" />
         <div className="container">
-            <input type="text" placeholder="write what you want to search... " value={prompt} onChange={data} />
+            <input type="text" placeholder="what you want to search today" value={prompt} onChange={data} />
             <ul className="generatexText-container" id={containerId}>
             {(allContents.length > 1) ? allContents.map((data,index) => {
                     return <li className="generatexText" key={index}>{data}</li>
