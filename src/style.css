@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+:root
+{
+  --f-font-color:white;
+  --s-font-color:gray;
+  --hover-font-color:black;
+  --main-color:aqua;
+}
+
 body
 {
   min-height: 100vh;
@@ -12,8 +20,103 @@ body
   align-items: center;
 }
 
+.bg
+{
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+}
+
+input
+{
+  color: var(--f-font-color);
+  padding: .5rem;
+  background: transparent;
+  border:2px solid var(--f-font-color);
+  min-width: 15rem;
+}
+
+input:focus
+{
+  outline: none;
+}
+
+::placeholder
+{
+  color: var(--s-font-color);
+}
+
+
 .container
 {
   height: 85vh;
   width: 80vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  backdrop-filter: blur(10px);
+  border: 2px solid aqua;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+  padding: 1rem;
+}
+
+.container .generatexText-container
+{
+  box-shadow: inset 0rem 0rem .5rem var(--s-font-color);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+}
+
+.generatexText-container .generatexText
+{
+  color: var(--main-color);
+}
+
+#hideContainer
+{
+  display: none;
+}
+
+#displayContainer
+{
+  display: block;
+}
+
+#submitBtn
+{
+  padding: .5rem 1rem;
+  background: transparent;
+  border: 2px solid var(--f-font-color);
+  color: var(--f-font-color);
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+  transition: .3s linear;
+  -webkit-transition: .3s linear;
+  -moz-transition: .3s linear;
+  -ms-transition: .3s linear;
+  -o-transition: .3s linear;
+  cursor: pointer;
+}
+
+#submitBtn:hover
+{
+  background: var(--main-color);
+  color: var(--font-color);
+  box-shadow: 0rem 0rem 1rem var(--main-color);
 }
